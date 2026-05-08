@@ -3,7 +3,7 @@ import { getDictionary, hasLocale, type Locale } from '@/dictionaries'
 import Image from 'next/image'
 import Link from 'next/link'
 import { getCard, getCardImage } from '@/lib/api/scryfall'
-import { getLorcanaCard } from '@/lib/api/lorcana'
+import { getLorcanaCard, getLorcanaFullName, getLorcanaImage, formatLorcanaRarity } from '@/lib/api/lorcana'
 import { getPokemonCard } from '@/lib/api/pokemon'
 import type { Metadata } from 'next'
 
@@ -30,16 +30,16 @@ async function fetchCardDetail(game: Game, id: string) {
     if (game === 'lorcana') {
       const card = await getLorcanaCard(id)
       return {
-        name: card.fullName,
-        image: card.image.full,
+        name: getLorcanaFullName(card),
+        image: getLorcanaImage(card, 'large'),
         set: card.set.name,
-        rarity: card.rarity,
+        rarity: formatLorcanaRarity(card.rarity),
         type: card.type.join(', '),
-        text: null,
-        priceEur: card.prices.market ? `${card.prices.market.toFixed(2)} €` : null,
-        priceEurFoil: null,
+        text: card.text ?? null,
+        priceEur: card.prices.usd ? `${card.prices.usd.toFixed(2)} $` : null,
+        priceEurFoil: card.prices.usd_foil ? `${card.prices.usd_foil.toFixed(2)} $` : null,
         cardmarketUrl: null,
-        number: card.number.toString(),
+        number: card.collector_number,
         legalities: {},
       }
     }

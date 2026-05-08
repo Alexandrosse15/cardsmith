@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import { getDictionary, hasLocale, type Locale } from '@/dictionaries'
 import { searchCards as scryfallSearch, getCardImage, getMagicSets, type ScryfallSet } from '@/lib/api/scryfall'
-import { searchLorcanaCards, getLorcanaSets, type LorcanaSet } from '@/lib/api/lorcana'
+import { getLorcanaSets, type LorcanaSet } from '@/lib/api/lorcana'
 import { searchPokemonCards } from '@/lib/api/pokemon'
 import CardGrid, { type CardItem } from '@/components/cards/CardGrid'
 import SearchBar from '@/components/cards/SearchBar'

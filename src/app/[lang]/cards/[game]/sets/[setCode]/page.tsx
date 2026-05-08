@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import { getDictionary, hasLocale, type Locale } from '@/dictionaries'
 import { getSetCards, getCardImage } from '@/lib/api/scryfall'
-import { getLorcanaSetCards } from '@/lib/api/lorcana'
+import { getLorcanaSetCards, getLorcanaFullName, getLorcanaImage, formatLorcanaRarity } from '@/lib/api/lorcana'
 import CardGrid, { type CardItem } from '@/components/cards/CardGrid'
 import Link from 'next/link'
 import type { Metadata } from 'next'
@@ -39,11 +39,11 @@ export default async function SetCardsPage({
       setName = raw[0]?.set.name ?? setCode
       cards = raw.map((c) => ({
         id: c.id,
-        name: c.fullName,
+        name: getLorcanaFullName(c),
         set: c.set.name,
-        rarity: c.rarity,
-        imageUrl: c.image.thumbnail,
-        priceEur: c.prices.market ?? c.prices.mid,
+        rarity: formatLorcanaRarity(c.rarity),
+        imageUrl: getLorcanaImage(c, 'small'),
+        priceEur: c.prices.usd ?? null,
         game: 'lorcana',
       }))
     } catch {
