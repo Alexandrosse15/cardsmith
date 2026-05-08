@@ -55,8 +55,8 @@ const MAIN_SET_CODES = new Set(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10
 export async function getLorcanaSets(): Promise<LorcanaSet[]> {
   const res = await fetch(`${BASE}/sets`, { next: { revalidate: 86400 } })
   if (!res.ok) throw new Error('Lorcast sets fetch failed')
-  const data: LorcanaSet[] = await res.json()
-  return data
+  const data: { results: LorcanaSet[] } = await res.json()
+  return data.results
     .filter((s) => MAIN_SET_CODES.has(s.code))
     .sort((a, b) => (a.released_at < b.released_at ? -1 : 1))
 }
