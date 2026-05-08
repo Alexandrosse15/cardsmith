@@ -7,7 +7,7 @@ import { getLorcanaCard, getLorcanaFullName, getLorcanaImage, formatLorcanaRarit
 import { getPokemonCard } from '@/lib/api/pokemon'
 import type { Metadata } from 'next'
 
-type Game = 'magic' | 'lorcana' | 'lor' | 'pokemon'
+type Game = 'magic' | 'lorcana' | 'riftbound' | 'pokemon'
 
 async function fetchCardDetail(game: Game, id: string) {
   try {
@@ -45,21 +45,22 @@ async function fetchCardDetail(game: Game, id: string) {
         legalities: {},
       }
     }
-    if (game === 'lor') {
-      const { getLorCard, getLorCardImage } = await import('@/lib/api/lor')
-      const card = await getLorCard(id)
+    if (game === 'riftbound') {
+      const { getRiftboundCard, getRiftboundCardImage, RIFTBOUND_SETS } = await import('@/lib/api/riftbound')
+      const card = await getRiftboundCard(id)
       if (!card) return null
+      const setName = RIFTBOUND_SETS.find((s) => s.id === card.set_id)?.name ?? card.set_id
       return {
         name: card.name,
-        image: getLorCardImage(card, 'full'),
-        set: card.set,
+        image: getRiftboundCardImage(card, 'large'),
+        set: setName,
         rarity: card.rarity,
-        type: card.type,
-        text: card.descriptionRaw,
+        type: `${card.type}${card.faction ? ' - ' + card.faction : ''}`,
+        text: null,
         priceEur: null,
         priceEurFoil: null,
         cardmarketUrl: null,
-        number: card.cardCode,
+        number: String(card.collector_number),
         legalities: {},
       }
     }

@@ -12,6 +12,7 @@ const nextConfig: NextConfig = {
       { protocol: 'http', hostname: 'dd.b.pvp.net' },
       { protocol: 'https', hostname: 'dd.b.pvp.net' },
       { protocol: 'https', hostname: 'images.pokemontcg.io' },
+      { protocol: 'https', hostname: 'cdn.riftscribe.gg' },
     ],
   },
 }

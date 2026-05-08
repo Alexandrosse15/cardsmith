@@ -26,7 +26,7 @@ export default function Footer({ lang }: FooterProps) {
             {[
               { href: `/${lang}/cards/magic`, label: 'Magic: The Gathering' },
               { href: `/${lang}/cards/lorcana`, label: 'Disney Lorcana' },
-              { href: `/${lang}/cards/lor`, label: 'Legends of Runeterra' },
+              { href: `/${lang}/cards/riftbound`, label: 'Riftbound' },
               { href: `/${lang}/cards/pokemon`, label: 'Pokemon TCG' },
             ].map((l) => (
               <Link key={l.href} href={l.href} className="block py-1 text-sm text-[var(--muted)] hover:text-white">
@@ -53,7 +53,7 @@ export default function Footer({ lang }: FooterProps) {
             <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-[var(--muted)]">Sources</p>
             <p className="text-xs text-[var(--muted)]">
               {lang === 'fr' ? 'Données fournies par' : 'Data provided by'}{' '}
-              Scryfall, Lorcast, Riot Games Data Dragon, Pokemon TCG API.
+              Scryfall, Lorcast, RiftScribe, Pokemon TCG API.
             </p>
           </div>
         </div>

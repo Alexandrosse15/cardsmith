@@ -38,7 +38,7 @@ export const FORMATS: Record<string, { id: string; label: string }[]> = {
   pokemon: [
     { id: 'standard', label: 'Standard' },
   ],
-  lor: [
+  riftbound: [
     { id: 'standard', label: 'Standard' },
   ],
 }

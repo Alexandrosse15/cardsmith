@@ -24,8 +24,8 @@ const GAMES = [
     accent: 'text-blue-400',
   },
   {
-    id: 'lor',
-    name: 'Legends of Runeterra',
+    id: 'riftbound',
+    name: 'Riftbound',
     color: 'from-red-900/30 to-red-700/10',
     border: 'border-red-700/30',
     accent: 'text-red-400',

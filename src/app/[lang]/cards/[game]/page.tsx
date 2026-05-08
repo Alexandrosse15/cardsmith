@@ -1,22 +1,14 @@
 import { notFound } from 'next/navigation'
 import { getDictionary, hasLocale, type Locale } from '@/dictionaries'
-import { searchCards as scryfallSearch, getCardImage, getMagicSets, type ScryfallSet } from '@/lib/api/scryfall'
-import { getLorcanaSets, type LorcanaSet } from '@/lib/api/lorcana'
-import { searchPokemonCards } from '@/lib/api/pokemon'
-import CardGrid, { type CardItem } from '@/components/cards/CardGrid'
-import SearchBar from '@/components/cards/SearchBar'
+import { getMagicSets, type ScryfallSet } from '@/lib/api/scryfall'
+import { getLorcanaSets } from '@/lib/api/lorcana'
+import { getPokemonSets } from '@/lib/api/pokemon'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Suspense } from 'react'
 import type { Metadata } from 'next'
 
-const VALID_GAMES = ['magic', 'lorcana', 'lor', 'pokemon'] as const
+const VALID_GAMES = ['magic', 'lorcana', 'riftbound', 'pokemon'] as const
 type Game = (typeof VALID_GAMES)[number]
-
-const DEFAULT_QUERIES: Record<Exclude<Game, 'magic' | 'lorcana'>, string> = {
-  lor: 'e',
-  pokemon: 'charizard',
-}
 
 const MAGIC_SET_TYPE_LABEL: Record<string, { fr: string; en: string }> = {
   core: { fr: 'Set de base', en: 'Core Set' },
@@ -25,55 +17,12 @@ const MAGIC_SET_TYPE_LABEL: Record<string, { fr: string; en: string }> = {
   draft_innovation: { fr: 'Innovation', en: 'Draft Innovation' },
 }
 
-const LORCANA_SET_NAMES: Record<string, string> = {
-  '1': 'The First Chapter',
-  '2': 'Rise of the Floodborn',
-  '3': 'Into the Inklands',
-  '4': "Ursula's Return",
-  '5': 'Shimmering Skies',
-  '6': 'Azurite Sea',
-  '7': "Archazia's Island",
-  '8': 'Reign of Jafar',
-  '9': 'Fabled',
-  '10': 'Whispers in the Well',
-  '11': 'Winterspell',
-  '12': 'Wilds Unknown',
-}
-
-async function fetchCards(game: Exclude<Game, 'magic' | 'lorcana'>, query: string): Promise<CardItem[]> {
-  try {
-    if (game === 'lor') {
-      const { searchLorCards, getLorCardImage } = await import('@/lib/api/lor')
-      const cards = await searchLorCards(query || DEFAULT_QUERIES.lor)
-      return cards
-        .filter((c) => c.collectible)
-        .slice(0, 30)
-        .map((c) => ({
-          id: c.cardCode,
-          name: c.name,
-          set: c.set,
-          rarity: c.rarity,
-          imageUrl: getLorCardImage(c),
-          priceEur: null,
-          game: 'lor',
-        }))
-    }
-    if (game === 'pokemon') {
-      const res = await searchPokemonCards(query || DEFAULT_QUERIES.pokemon)
-      return res.data.map((c) => ({
-        id: c.id,
-        name: c.name,
-        set: c.set.name,
-        rarity: c.rarity ?? 'Unknown',
-        imageUrl: c.images.small,
-        priceEur: c.cardmarket?.prices?.averageSellPrice,
-        game: 'pokemon',
-      }))
-    }
-  } catch {
-    return []
-  }
-  return []
+function groupPokemonSetsBySeries(sets: Awaited<ReturnType<typeof getPokemonSets>>): Record<string, typeof sets> {
+  return sets.reduce<Record<string, typeof sets>>((acc, set) => {
+    if (!acc[set.series]) acc[set.series] = []
+    acc[set.series].push(set)
+    return acc
+  }, {})
 }
 
 function groupMagicSetsByYear(sets: ScryfallSet[]): Record<string, ScryfallSet[]> {
@@ -98,13 +47,10 @@ export async function generateMetadata({
 
 export default async function CardsPage({
   params,
-  searchParams,
 }: {
   params: Promise<{ lang: string; game: string }>
-  searchParams: Promise<{ q?: string }>
 }) {
   const { lang, game } = await params
-  const { q = '' } = await searchParams
 
   if (!hasLocale(lang) || !VALID_GAMES.includes(game as Game)) notFound()
 
@@ -198,31 +144,95 @@ export default async function CardsPage({
     )
   }
 
-  const cards = await fetchCards(game as Exclude<Game, 'magic' | 'lorcana'>, q)
+  if (game === 'riftbound') {
+    const { RIFTBOUND_SETS } = await import('@/lib/api/riftbound')
+
+    return (
+      <div className="mx-auto max-w-7xl px-4 py-8">
+        <div className="mb-8">
+          <h1 className="text-2xl font-bold text-white">{dict.games.riftbound}</h1>
+          <p className="mt-1 text-sm text-[var(--muted)]">
+            {lang === 'fr'
+              ? `${RIFTBOUND_SETS.length} extensions`
+              : `${RIFTBOUND_SETS.length} sets`}
+          </p>
+        </div>
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {RIFTBOUND_SETS.map((set) => (
+            <Link
+              key={set.id}
+              href={`/${lang}/cards/riftbound/sets/${set.id}`}
+              className="flex flex-col gap-1 rounded-xl border border-[var(--card-border)] bg-[var(--card-bg)] px-4 py-4 transition-all hover:border-[var(--accent)] hover:-translate-y-0.5"
+            >
+              <p className="truncate text-sm font-semibold text-white">{set.name}</p>
+              <p className="text-xs text-[var(--muted)]">
+                {new Date(set.released_at).toLocaleDateString(lang === 'fr' ? 'fr-FR' : 'en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                })}
+              </p>
+            </Link>
+          ))}
+        </div>
+      </div>
+    )
+  }
+
+  // pokemon
+  const sets = await getPokemonSets()
+  const grouped = groupPokemonSetsBySeries(sets)
+  const series = Object.keys(grouped)
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8">
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold text-white">
-          {dict.games[game as keyof typeof dict.games]}
-        </h1>
-        <p className="mt-1 text-sm text-[var(--muted)]">{dict.cards.title}</p>
+      <div className="mb-8">
+        <h1 className="text-2xl font-bold text-white">{dict.games.pokemon}</h1>
+        <p className="mt-1 text-sm text-[var(--muted)]">
+          {lang === 'fr'
+            ? `${sets.length} extensions`
+            : `${sets.length} sets`}
+        </p>
       </div>
-      <div className="mb-6 max-w-md">
-        <Suspense>
-          <SearchBar placeholder={dict.cards.search_placeholder} defaultValue={q} />
-        </Suspense>
+      <div className="space-y-10">
+        {series.map((serie) => (
+          <section key={serie}>
+            <h2 className="mb-4 border-b border-[var(--card-border)] pb-2 text-lg font-bold text-white">
+              {serie}
+            </h2>
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {grouped[serie].map((set) => (
+                <Link
+                  key={set.id}
+                  href={`/${lang}/cards/pokemon/sets/${set.id}`}
+                  className="flex items-center gap-3 rounded-xl border border-[var(--card-border)] bg-[var(--card-bg)] px-4 py-3 transition-all hover:border-[var(--accent)] hover:-translate-y-0.5"
+                >
+                  {set.images.symbol && (
+                    <Image
+                      src={set.images.symbol}
+                      alt=""
+                      width={24}
+                      height={24}
+                      className="shrink-0 object-contain"
+                      unoptimized
+                    />
+                  )}
+                  <div className="min-w-0 flex-1">
+                    <p className="truncate text-sm font-semibold text-white">{set.name}</p>
+                    <p className="text-xs text-[var(--muted)]">
+                      {set.printedTotal} {lang === 'fr' ? 'cartes' : 'cards'}
+                      {' · '}
+                      {new Date(set.releaseDate).toLocaleDateString(lang === 'fr' ? 'fr-FR' : 'en-US', {
+                        year: 'numeric',
+                        month: 'short',
+                      })}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        ))}
       </div>
-      {cards.length === 0 ? (
-        <p className="py-20 text-center text-[var(--muted)]">{dict.cards.no_results}</p>
-      ) : (
-        <CardGrid
-          cards={cards}
-          lang={lang}
-          priceLabel={dict.cards.price_label}
-          viewLabel={dict.cards.view_card}
-        />
-      )}
     </div>
   )
 }

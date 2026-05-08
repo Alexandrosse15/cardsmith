@@ -1,0 +1,82 @@
+{
+  "format": "Standard",
+  "updatedAt": "2026-05-08",
+  "decks": [
+    {
+      "id": "fury-aggro",
+      "name": "Fury Aggro",
+      "tier": 1,
+      "winRate": "58.2%",
+      "archetype": "Aggro",
+      "colors": ["Fury"],
+      "mainboard": [
+        { "quantity": 3, "name": "Blazing Scorcher" },
+        { "quantity": 3, "name": "Ember Drake" },
+        { "quantity": 3, "name": "Flame Warden" },
+        { "quantity": 3, "name": "Pyromancer's Surge" },
+        { "quantity": 3, "name": "Inferno Cyclone" },
+        { "quantity": 2, "name": "Ashen Knight" },
+        { "quantity": 3, "name": "Scorched Earth" },
+        { "quantity": 2, "name": "Blazing Rally" }
+      ],
+      "sideboard": []
+    },
+    {
+      "id": "valor-control",
+      "name": "Valor Control",
+      "tier": 1,
+      "winRate": "55.7%",
+      "archetype": "Control",
+      "colors": ["Valor"],
+      "mainboard": [
+        { "quantity": 3, "name": "Shield Sentinel" },
+        { "quantity": 3, "name": "Iron Bulwark" },
+        { "quantity": 3, "name": "Stalwart Defender" },
+        { "quantity": 3, "name": "Oath of Protection" },
+        { "quantity": 2, "name": "Fortress Keeper" },
+        { "quantity": 3, "name": "Armored Charge" },
+        { "quantity": 3, "name": "Valor's Stand" },
+        { "quantity": 2, "name": "Guardian's Command" }
+      ],
+      "sideboard": []
+    },
+    {
+      "id": "fury-valor",
+      "name": "Fury / Valor Midrange",
+      "tier": 2,
+      "winRate": "52.4%",
+      "archetype": "Midrange",
+      "colors": ["Fury", "Valor"],
+      "mainboard": [
+        { "quantity": 2, "name": "Blazing Scorcher" },
+        { "quantity": 3, "name": "Shield Sentinel" },
+        { "quantity": 3, "name": "Ember Drake" },
+        { "quantity": 2, "name": "Iron Bulwark" },
+        { "quantity": 3, "name": "Combined Arms" },
+        { "quantity": 3, "name": "Pyromancer's Surge" },
+        { "quantity": 2, "name": "Oath of Protection" },
+        { "quantity": 3, "name": "Forge and Flame" }
+      ],
+      "sideboard": []
+    },
+    {
+      "id": "wisdom-combo",
+      "name": "Wisdom Combo",
+      "tier": 2,
+      "winRate": "50.9%",
+      "archetype": "Combo",
+      "colors": ["Wisdom"],
+      "mainboard": [
+        { "quantity": 3, "name": "Arcane Weaver" },
+        { "quantity": 3, "name": "Mind Splitter" },
+        { "quantity": 3, "name": "Scroll Keeper" },
+        { "quantity": 2, "name": "Ether Oracle" },
+        { "quantity": 3, "name": "Insight Surge" },
+        { "quantity": 3, "name": "Arcane Rift" },
+        { "quantity": 2, "name": "Forbidden Knowledge" },
+        { "quantity": 3, "name": "Grand Design" }
+      ],
+      "sideboard": []
+    }
+  ]
+}

@@ -32,9 +32,12 @@ const COLOR_SYMBOLS: Record<string, { bg: string; label: string }> = {
   Lightning: { bg: 'bg-yellow-400 text-yellow-900', label: 'L' },
   Water: { bg: 'bg-blue-400 text-white', label: 'W' },
   Colorless: { bg: 'bg-gray-300 text-gray-800', label: 'C' },
-  Shurima: { bg: 'bg-amber-500 text-white', label: 'Sh' },
-  Ionia: { bg: 'bg-pink-400 text-white', label: 'Io' },
-  Targon: { bg: 'bg-purple-400 text-white', label: 'Ta' },
+  Fury: { bg: 'bg-orange-500 text-white', label: 'Fy' },
+  Valor: { bg: 'bg-yellow-500 text-white', label: 'Va' },
+  Wisdom: { bg: 'bg-indigo-500 text-white', label: 'Wi' },
+  Shadow: { bg: 'bg-gray-800 text-gray-200', label: 'Sd' },
+  Nature: { bg: 'bg-green-600 text-white', label: 'Na' },
+  Order: { bg: 'bg-sky-500 text-white', label: 'Or' },
 }
 
 export default function DeckRow({ deck, lang, game }: DeckRowProps) {

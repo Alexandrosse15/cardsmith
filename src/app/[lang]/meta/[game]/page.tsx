@@ -5,7 +5,7 @@ import DeckRow from '@/components/meta/DeckRow'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 
-const VALID_GAMES = ['magic', 'lorcana', 'lor', 'pokemon']
+const VALID_GAMES = ['magic', 'lorcana', 'riftbound', 'pokemon']
 
 export async function generateMetadata({
   params,

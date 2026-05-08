@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import { getDictionary, hasLocale, type Locale } from '@/dictionaries'
 import { getSetCards, getCardImage } from '@/lib/api/scryfall'
 import { getLorcanaSetCards, getLorcanaFullName, getLorcanaImage, formatLorcanaRarity } from '@/lib/api/lorcana'
+import { getPokemonSetCards } from '@/lib/api/pokemon'
 import CardGrid, { type CardItem } from '@/components/cards/CardGrid'
 import Link from 'next/link'
 import type { Metadata } from 'next'
@@ -12,7 +13,9 @@ export async function generateMetadata({
   params: Promise<{ lang: string; game: string; setCode: string }>
 }): Promise<Metadata> {
   const { game, setCode } = await params
-  return { title: `${game === 'magic' ? 'Magic' : 'Lorcana'} - ${setCode.toUpperCase()}` }
+  const GAME_LABELS: Record<string, string> = { magic: 'Magic', lorcana: 'Lorcana', riftbound: 'Riftbound', pokemon: 'Pokemon' }
+  const gameName = GAME_LABELS[game] ?? game
+  return { title: `${gameName} - ${setCode.toUpperCase()}` }
 }
 
 export default async function SetCardsPage({
@@ -25,7 +28,7 @@ export default async function SetCardsPage({
   const { lang, game, setCode } = await params
   const { page: pageParam = '1' } = await searchParams
 
-  if (!hasLocale(lang) || !['magic', 'lorcana'].includes(game)) notFound()
+  if (!hasLocale(lang) || !['magic', 'lorcana', 'riftbound', 'pokemon'].includes(game)) notFound()
 
   const dict = await getDictionary(lang as Locale)
   const page = Math.max(1, parseInt(pageParam, 10) || 1)
@@ -83,6 +86,148 @@ export default async function SetCardsPage({
             priceLabel={dict.cards.price_label}
             viewLabel={dict.cards.view_card}
           />
+        )}
+      </div>
+    )
+  }
+
+  if (game === 'riftbound') {
+    const { getRiftboundSetCards, getRiftboundCardImage, RIFTBOUND_SETS } = await import('@/lib/api/riftbound')
+    const setInfo = RIFTBOUND_SETS.find((s) => s.id === setCode.toUpperCase())
+    const setName = setInfo?.name ?? setCode.toUpperCase()
+    let cards: CardItem[] = []
+
+    try {
+      const raw = await getRiftboundSetCards(setCode.toUpperCase())
+      cards = raw.map((c) => ({
+        id: c.id,
+        name: c.name,
+        set: setName,
+        rarity: c.rarity,
+        imageUrl: getRiftboundCardImage(c, 'medium'),
+        priceEur: null,
+        game: 'riftbound',
+      }))
+    } catch {
+      notFound()
+    }
+
+    return (
+      <div className="mx-auto max-w-7xl px-4 py-8">
+        <Link
+          href={`/${lang}/cards/riftbound`}
+          className="mb-6 inline-flex items-center gap-1.5 text-sm text-[var(--muted)] hover:text-white"
+        >
+          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+          {lang === 'fr' ? 'Toutes les extensions' : 'All sets'}
+        </Link>
+
+        <div className="mb-6 flex items-end justify-between">
+          <div>
+            <h1 className="text-2xl font-bold text-white">{setName}</h1>
+            <p className="mt-1 text-sm text-[var(--muted)]">
+              {cards.length} {lang === 'fr' ? 'cartes' : 'cards'}
+            </p>
+          </div>
+          <span className="rounded-md border border-[var(--card-border)] bg-[var(--card-bg)] px-2.5 py-1 text-xs font-bold text-[var(--muted)]">
+            {setCode.toUpperCase()}
+          </span>
+        </div>
+
+        {cards.length === 0 ? (
+          <p className="py-20 text-center text-[var(--muted)]">{dict.cards.no_results}</p>
+        ) : (
+          <CardGrid
+            cards={cards}
+            lang={lang}
+            priceLabel={dict.cards.price_label}
+            viewLabel={dict.cards.view_card}
+          />
+        )}
+      </div>
+    )
+  }
+
+  if (game === 'pokemon') {
+    let result
+    try {
+      result = await getPokemonSetCards(setCode, page)
+    } catch {
+      notFound()
+    }
+
+    const cards: CardItem[] = result.data.map((c) => ({
+      id: c.id,
+      name: c.name,
+      set: c.set.name,
+      rarity: c.rarity ?? 'Unknown',
+      imageUrl: c.images.small,
+      priceEur: c.cardmarket?.prices?.averageSellPrice ?? null,
+      game: 'pokemon',
+    }))
+
+    const setName = result.data[0]?.set.name ?? setCode.toUpperCase()
+    const totalCards = result.totalCount
+    const totalPages = Math.ceil(totalCards / 36)
+
+    return (
+      <div className="mx-auto max-w-7xl px-4 py-8">
+        <Link
+          href={`/${lang}/cards/pokemon`}
+          className="mb-6 inline-flex items-center gap-1.5 text-sm text-[var(--muted)] hover:text-white"
+        >
+          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+          {lang === 'fr' ? 'Toutes les extensions' : 'All sets'}
+        </Link>
+
+        <div className="mb-6 flex items-end justify-between">
+          <div>
+            <h1 className="text-2xl font-bold text-white">{setName}</h1>
+            <p className="mt-1 text-sm text-[var(--muted)]">
+              {totalCards} {lang === 'fr' ? 'cartes' : 'cards'}
+              {totalPages > 1 && ` · ${lang === 'fr' ? 'Page' : 'Page'} ${page}/${totalPages}`}
+            </p>
+          </div>
+          <span className="rounded-md border border-[var(--card-border)] bg-[var(--card-bg)] px-2.5 py-1 font-mono text-xs font-bold text-[var(--muted)]">
+            {setCode.toUpperCase()}
+          </span>
+        </div>
+
+        {cards.length === 0 ? (
+          <p className="py-20 text-center text-[var(--muted)]">{dict.cards.no_results}</p>
+        ) : (
+          <CardGrid
+            cards={cards}
+            lang={lang}
+            priceLabel={dict.cards.price_label}
+            viewLabel={dict.cards.view_card}
+          />
+        )}
+
+        {totalPages > 1 && (
+          <div className="mt-10 flex items-center justify-center gap-3">
+            {page > 1 && (
+              <Link
+                href={`/${lang}/cards/pokemon/sets/${setCode}?page=${page - 1}`}
+                className="rounded-lg border border-[var(--card-border)] bg-[var(--card-bg)] px-4 py-2 text-sm text-white transition-colors hover:border-[var(--accent)]"
+              >
+                {lang === 'fr' ? 'Page précédente' : 'Previous page'}
+              </Link>
+            )}
+            <span className="text-sm text-[var(--muted)]">{page} / {totalPages}</span>
+            {page < totalPages && (
+              <Link
+                href={`/${lang}/cards/pokemon/sets/${setCode}?page=${page + 1}`}
+                className="rounded-lg border border-[var(--card-border)] bg-[var(--card-bg)] px-4 py-2 text-sm text-white transition-colors hover:border-[var(--accent)]"
+              >
+                {lang === 'fr' ? 'Page suivante' : 'Next page'}
+              </Link>
+            )}
+          </div>
         )}
       </div>
     )

@@ -61,9 +61,27 @@ export async function getPokemonCard(id: string): Promise<PokemonCard> {
 
 export async function getPokemonSetCards(setId: string, page = 1): Promise<PokemonCardList> {
   const res = await fetch(
-    `${BASE}/cards?q=set.id:${setId}&page=${page}&pageSize=20`,
-    { next: { revalidate: 3600 } }
+    `${BASE}/cards?q=set.id:${setId}&page=${page}&pageSize=36&orderBy=number`,
+    { next: { revalidate: 86400 } }
   )
   if (!res.ok) throw new Error('Pokemon TCG set fetch failed')
   return res.json()
+}
+
+export interface PokemonSet {
+  id: string
+  name: string
+  series: string
+  printedTotal: number
+  releaseDate: string
+  images: { symbol: string; logo: string }
+}
+
+export async function getPokemonSets(): Promise<PokemonSet[]> {
+  const res = await fetch(`${BASE}/sets?orderBy=-releaseDate&pageSize=250`, {
+    next: { revalidate: 86400 },
+  })
+  if (!res.ok) throw new Error('Pokemon TCG sets fetch failed')
+  const data: { data: PokemonSet[] } = await res.json()
+  return data.data
 }

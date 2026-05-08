@@ -19,7 +19,7 @@ interface NavbarProps {
 const GAMES = [
   { id: 'magic', label: 'Magic: The Gathering' },
   { id: 'lorcana', label: 'Disney Lorcana' },
-  { id: 'lor', label: 'Legends of Runeterra' },
+  { id: 'riftbound', label: 'Riftbound' },
   { id: 'pokemon', label: 'Pokemon TCG' },
 ]
 
