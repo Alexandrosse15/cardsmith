@@ -1,0 +1,61 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "cards": "Cartes",
+    "news": "Actualités",
+    "meta": "Meta",
+    "search": "Rechercher..."
+  },
+  "home": {
+    "hero_title": "Toutes vos cartes, un seul endroit",
+    "hero_subtitle": "Explorez les prix, suivez la meta et restez informé sur Magic, Lorcana, Legends of Runeterra et Pokémon TCG.",
+    "explore_cards": "Explorer les cartes",
+    "latest_news": "Dernières actualités",
+    "read_more": "Lire la suite"
+  },
+  "cards": {
+    "title": "Catalogue de cartes",
+    "search_placeholder": "Nom de la carte...",
+    "filter_set": "Extension",
+    "filter_rarity": "Rareté",
+    "filter_type": "Type",
+    "sort_price_asc": "Prix croissant",
+    "sort_price_desc": "Prix décroissant",
+    "sort_name": "Nom",
+    "no_results": "Aucune carte trouvée",
+    "price_label": "Prix moyen",
+    "view_card": "Voir la carte"
+  },
+  "card": {
+    "price_cardmarket": "Prix Cardmarket",
+    "price_trend": "Tendance",
+    "set": "Extension",
+    "rarity": "Rareté",
+    "type": "Type",
+    "collector_number": "N° collectionneur",
+    "back_to_list": "Retour aux cartes"
+  },
+  "news": {
+    "title": "Actualités",
+    "subtitle": "Nouvelles sorties, analyses de meta, previews de sets",
+    "read_more": "Lire l'article",
+    "min_read": "min de lecture"
+  },
+  "meta": {
+    "title": "Meta",
+    "subtitle": "Decks et archetypes du moment",
+    "tier": "Tier",
+    "win_rate": "Taux de victoire"
+  },
+  "games": {
+    "magic": "Magic: The Gathering",
+    "lorcana": "Disney Lorcana",
+    "lor": "Legends of Runeterra",
+    "pokemon": "Pokémon TCG"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue",
+    "all_games": "Tous les jeux"
+  }
+}
