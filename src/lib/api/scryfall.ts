@@ -46,10 +46,49 @@ export async function getCard(id: string): Promise<ScryfallCard> {
 }
 
 export async function getSetCards(setCode: string, page = 1): Promise<ScryfallList> {
-  return searchCards(`set:${setCode}`, page)
+  const res = await fetch(
+    `${BASE}/cards/search?q=set:${setCode}&order=collector_number&page=${page}`,
+    { next: { revalidate: 3600 } }
+  )
+  if (!res.ok) throw new Error('Scryfall set fetch failed')
+  return res.json()
 }
 
 export function getCardImage(card: ScryfallCard, size: 'small' | 'normal' | 'large' = 'normal'): string {
   const uris = card.image_uris ?? card.card_faces?.[0]?.image_uris
   return uris?.[size] ?? ''
+}
+
+export interface ScryfallSet {
+  code: string
+  name: string
+  released_at: string
+  set_type: string
+  card_count: number
+  icon_svg_uri: string
+  scryfall_uri: string
+}
+
+const INCLUDED_SET_TYPES = new Set([
+  'core',
+  'expansion',
+  'masters',
+  'draft_innovation',
+])
+
+const ZENDIKAR_DATE = '2009-10-02'
+
+export async function getMagicSets(): Promise<ScryfallSet[]> {
+  const res = await fetch(`${BASE}/sets`, { next: { revalidate: 86400 } })
+  if (!res.ok) throw new Error('Scryfall sets fetch failed')
+  const data: { data: ScryfallSet[] } = await res.json()
+
+  return data.data
+    .filter(
+      (s) =>
+        INCLUDED_SET_TYPES.has(s.set_type) &&
+        s.released_at >= ZENDIKAR_DATE &&
+        s.card_count > 0
+    )
+    .sort((a, b) => (a.released_at < b.released_at ? 1 : -1))
 }

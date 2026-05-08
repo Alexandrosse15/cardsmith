@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       { protocol: 'https', hostname: 'cards.scryfall.io' },
       { protocol: 'https', hostname: 'c1.scryfall.com' },
+      { protocol: 'https', hostname: 'svgs.scryfall.io' },
       { protocol: 'https', hostname: 'images.lorcania.com' },
       { protocol: 'https', hostname: 'lor.gg' },
       { protocol: 'https', hostname: 'images.pokemontcg.io' },

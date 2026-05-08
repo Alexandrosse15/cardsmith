@@ -1,39 +1,33 @@
 import { notFound } from 'next/navigation'
 import { getDictionary, hasLocale, type Locale } from '@/dictionaries'
-import { searchCards as scryfallSearch, getCardImage } from '@/lib/api/scryfall'
+import { searchCards as scryfallSearch, getCardImage, getMagicSets, type ScryfallSet } from '@/lib/api/scryfall'
 import { searchLorcanaCards } from '@/lib/api/lorcana'
 import { searchPokemonCards } from '@/lib/api/pokemon'
 import CardGrid, { type CardItem } from '@/components/cards/CardGrid'
 import SearchBar from '@/components/cards/SearchBar'
+import Image from 'next/image'
+import Link from 'next/link'
 import { Suspense } from 'react'
 import type { Metadata } from 'next'
 
 const VALID_GAMES = ['magic', 'lorcana', 'lor', 'pokemon'] as const
 type Game = (typeof VALID_GAMES)[number]
 
-const DEFAULT_QUERIES: Record<Game, string> = {
-  magic: 'format:standard',
+const DEFAULT_QUERIES: Record<Exclude<Game, 'magic'>, string> = {
   lorcana: 'the',
   lor: 'e',
   pokemon: 'charizard',
 }
 
-async function fetchCards(game: Game, query: string): Promise<CardItem[]> {
-  try {
-    if (game === 'magic') {
-      const q = query || DEFAULT_QUERIES.magic
-      const res = await scryfallSearch(q)
-      return res.data.map((c) => ({
-        id: c.id,
-        name: c.name,
-        set: c.set_name,
-        rarity: c.rarity,
-        imageUrl: getCardImage(c, 'small'),
-        priceEur: c.prices.eur,
-        game: 'magic',
-      }))
-    }
+const SET_TYPE_LABEL: Record<string, { fr: string; en: string }> = {
+  core: { fr: 'Set de base', en: 'Core Set' },
+  expansion: { fr: 'Extension', en: 'Expansion' },
+  masters: { fr: 'Masters', en: 'Masters' },
+  draft_innovation: { fr: 'Innovation', en: 'Draft Innovation' },
+}
 
+async function fetchCards(game: Exclude<Game, 'magic'>, query: string): Promise<CardItem[]> {
+  try {
     if (game === 'lorcana') {
       const res = await searchLorcanaCards(query || DEFAULT_QUERIES.lorcana)
       return res.results.slice(0, 30).map((c) => ({
@@ -46,7 +40,6 @@ async function fetchCards(game: Game, query: string): Promise<CardItem[]> {
         game: 'lorcana',
       }))
     }
-
     if (game === 'lor') {
       const { searchLorCards, getLorCardImage } = await import('@/lib/api/lor')
       const cards = await searchLorCards(query || DEFAULT_QUERIES.lor)
@@ -63,7 +56,6 @@ async function fetchCards(game: Game, query: string): Promise<CardItem[]> {
           game: 'lor',
         }))
     }
-
     if (game === 'pokemon') {
       const res = await searchPokemonCards(query || DEFAULT_QUERIES.pokemon)
       return res.data.map((c) => ({
@@ -82,6 +74,15 @@ async function fetchCards(game: Game, query: string): Promise<CardItem[]> {
   return []
 }
 
+function groupSetsByYear(sets: ScryfallSet[]): Record<string, ScryfallSet[]> {
+  return sets.reduce<Record<string, ScryfallSet[]>>((acc, set) => {
+    const year = set.released_at.slice(0, 4)
+    if (!acc[year]) acc[year] = []
+    acc[year].push(set)
+    return acc
+  }, {})
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -98,7 +99,7 @@ export default async function CardsPage({
   searchParams,
 }: {
   params: Promise<{ lang: string; game: string }>
-  searchParams: Promise<{ q?: string; page?: string }>
+  searchParams: Promise<{ q?: string }>
 }) {
   const { lang, game } = await params
   const { q = '' } = await searchParams
@@ -106,7 +107,64 @@ export default async function CardsPage({
   if (!hasLocale(lang) || !VALID_GAMES.includes(game as Game)) notFound()
 
   const dict = await getDictionary(lang as Locale)
-  const cards = await fetchCards(game as Game, q)
+
+  if (game === 'magic') {
+    const sets = await getMagicSets()
+    const grouped = groupSetsByYear(sets)
+    const years = Object.keys(grouped).sort((a, b) => Number(b) - Number(a))
+
+    return (
+      <div className="mx-auto max-w-7xl px-4 py-8">
+        <div className="mb-8">
+          <h1 className="text-2xl font-bold text-white">{dict.games.magic}</h1>
+          <p className="mt-1 text-sm text-[var(--muted)]">
+            {lang === 'fr'
+              ? `${sets.length} extensions depuis Zendikar (2009)`
+              : `${sets.length} sets since Zendikar (2009)`}
+          </p>
+        </div>
+
+        <div className="space-y-10">
+          {years.map((year) => (
+            <section key={year}>
+              <h2 className="mb-4 text-lg font-bold text-white border-b border-[var(--card-border)] pb-2">
+                {year}
+              </h2>
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                {grouped[year].map((set) => (
+                  <Link
+                    key={set.code}
+                    href={`/${lang}/cards/magic/sets/${set.code}`}
+                    className="flex items-center gap-3 rounded-xl border border-[var(--card-border)] bg-[var(--card-bg)] px-4 py-3 transition-all hover:border-[var(--accent)] hover:-translate-y-0.5"
+                  >
+                    <Image
+                      src={set.icon_svg_uri}
+                      alt=""
+                      width={28}
+                      height={28}
+                      className="shrink-0 invert opacity-70"
+                      unoptimized
+                    />
+                    <div className="min-w-0 flex-1">
+                      <p className="truncate text-sm font-semibold text-white">{set.name}</p>
+                      <p className="text-xs text-[var(--muted)]">
+                        {SET_TYPE_LABEL[set.set_type]?.[lang as 'fr' | 'en'] ?? set.set_type}
+                        {' · '}
+                        {set.card_count}{' '}
+                        {lang === 'fr' ? 'cartes' : 'cards'}
+                      </p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          ))}
+        </div>
+      </div>
+    )
+  }
+
+  const cards = await fetchCards(game as Exclude<Game, 'magic'>, q)
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8">
