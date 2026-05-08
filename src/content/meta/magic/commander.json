@@ -1,0 +1,84 @@
+{
+  "format": "Commander",
+  "updatedAt": "2025-05-08",
+  "decks": [
+    {
+      "id": "kinnan-bonder-prodigy",
+      "name": "Kinnan, Bonder Prodigy",
+      "tier": 1,
+      "winRate": "62.4%",
+      "archetype": "Combo-Ramp",
+      "colors": ["U", "G"],
+      "mainboard": [
+        { "quantity": 1, "name": "Kinnan, Bonder Prodigy" },
+        { "quantity": 1, "name": "Thassa's Oracle" },
+        { "quantity": 1, "name": "Demonic Consultation" },
+        { "quantity": 1, "name": "Basalt Monolith" },
+        { "quantity": 1, "name": "Freed from the Real" },
+        { "quantity": 1, "name": "Pili-Pala" },
+        { "quantity": 1, "name": "Mana Crypt" },
+        { "quantity": 1, "name": "Sol Ring" },
+        { "quantity": 1, "name": "Arcane Signet" },
+        { "quantity": 1, "name": "Birds of Paradise" },
+        { "quantity": 1, "name": "Noble Hierarch" },
+        { "quantity": 1, "name": "Force of Will" },
+        { "quantity": 1, "name": "Pact of Negation" },
+        { "quantity": 1, "name": "Mystical Tutor" },
+        { "quantity": 1, "name": "Sylvan Tutor" }
+      ],
+      "sideboard": []
+    },
+    {
+      "id": "najeela-blade-blossom",
+      "name": "Najeela, the Blade-Blossom",
+      "tier": 1,
+      "winRate": "60.1%",
+      "archetype": "Combo-Aggro",
+      "colors": ["W", "U", "B", "R", "G"],
+      "mainboard": [
+        { "quantity": 1, "name": "Najeela, the Blade-Blossom" },
+        { "quantity": 1, "name": "Mana Crypt" },
+        { "quantity": 1, "name": "Sol Ring" },
+        { "quantity": 1, "name": "Derevi, Empyrial Tactician" },
+        { "quantity": 1, "name": "Grand Abolisher" },
+        { "quantity": 1, "name": "Drannith Magistrate" },
+        { "quantity": 1, "name": "Force of Will" },
+        { "quantity": 1, "name": "Fierce Guardianship" },
+        { "quantity": 1, "name": "Silence" },
+        { "quantity": 1, "name": "Nature's Claim" },
+        { "quantity": 1, "name": "Earthcraft" },
+        { "quantity": 1, "name": "Reconnaissance" },
+        { "quantity": 1, "name": "Sylvan Library" },
+        { "quantity": 1, "name": "Demonic Tutor" },
+        { "quantity": 1, "name": "Imperial Seal" }
+      ],
+      "sideboard": []
+    },
+    {
+      "id": "tymna-kraum",
+      "name": "Tymna / Kraum (Midrange)",
+      "tier": 2,
+      "winRate": "55.8%",
+      "archetype": "Midrange",
+      "colors": ["W", "U", "B", "R"],
+      "mainboard": [
+        { "quantity": 1, "name": "Tymna the Weaver" },
+        { "quantity": 1, "name": "Kraum, Ludevic's Opus" },
+        { "quantity": 1, "name": "Mana Crypt" },
+        { "quantity": 1, "name": "Sol Ring" },
+        { "quantity": 1, "name": "Force of Will" },
+        { "quantity": 1, "name": "Counterspell" },
+        { "quantity": 1, "name": "Swords to Plowshares" },
+        { "quantity": 1, "name": "Rhystic Study" },
+        { "quantity": 1, "name": "Mystic Remora" },
+        { "quantity": 1, "name": "Demonic Tutor" },
+        { "quantity": 1, "name": "Vampiric Tutor" },
+        { "quantity": 1, "name": "Ad Nauseam" },
+        { "quantity": 1, "name": "Angel's Grace" },
+        { "quantity": 1, "name": "Thassa's Oracle" },
+        { "quantity": 1, "name": "Demonic Consultation" }
+      ],
+      "sideboard": []
+    }
+  ]
+}

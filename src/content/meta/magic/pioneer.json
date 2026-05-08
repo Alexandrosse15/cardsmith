@@ -1,0 +1,129 @@
+{
+  "format": "Pioneer",
+  "updatedAt": "2025-05-08",
+  "decks": [
+    {
+      "id": "rakdos-midrange",
+      "name": "Rakdos Midrange",
+      "tier": 1,
+      "winRate": "57.3%",
+      "archetype": "Midrange",
+      "colors": ["B", "R"],
+      "mainboard": [
+        { "quantity": 4, "name": "Thoughtseize" },
+        { "quantity": 4, "name": "Fatal Push" },
+        { "quantity": 4, "name": "Fable of the Mirror-Breaker" },
+        { "quantity": 4, "name": "Sheoldred, the Apocalypse" },
+        { "quantity": 4, "name": "Graveyard Trespasser" },
+        { "quantity": 4, "name": "Kroxa, Titan of Death's Hunger" },
+        { "quantity": 3, "name": "Bonecrusher Giant" },
+        { "quantity": 3, "name": "Kalitas, Traitor of Ghet" },
+        { "quantity": 4, "name": "Blood Crypt" },
+        { "quantity": 4, "name": "Blightstep Pathway" },
+        { "quantity": 4, "name": "Haunted Ridge" },
+        { "quantity": 4, "name": "Den of the Bugbear" },
+        { "quantity": 4, "name": "Hive of the Eye Tyrant" },
+        { "quantity": 4, "name": "Swamp" },
+        { "quantity": 4, "name": "Mountain" }
+      ],
+      "sideboard": [
+        { "quantity": 3, "name": "Duress" },
+        { "quantity": 3, "name": "Go Blank" },
+        { "quantity": 3, "name": "Abrade" },
+        { "quantity": 3, "name": "Unlicensed Hearse" },
+        { "quantity": 3, "name": "Kolaghan's Command" }
+      ]
+    },
+    {
+      "id": "lotus-field-combo",
+      "name": "Lotus Field Combo",
+      "tier": 1,
+      "winRate": "55.1%",
+      "archetype": "Combo",
+      "colors": ["U", "G"],
+      "mainboard": [
+        { "quantity": 4, "name": "Lotus Field" },
+        { "quantity": 4, "name": "Thespian's Stage" },
+        { "quantity": 4, "name": "Hidden Strings" },
+        { "quantity": 4, "name": "Pore Over the Pages" },
+        { "quantity": 4, "name": "Bala Ged Recovery" },
+        { "quantity": 4, "name": "Emergent Ultimatum" },
+        { "quantity": 4, "name": "Arboreal Grazer" },
+        { "quantity": 3, "name": "Explore" },
+        { "quantity": 3, "name": "Vizier of Tumbling Sands" },
+        { "quantity": 4, "name": "Breeding Pool" },
+        { "quantity": 4, "name": "Waterlogged Grove" },
+        { "quantity": 4, "name": "Yavimaya Coast" },
+        { "quantity": 4, "name": "Forest" },
+        { "quantity": 4, "name": "Island" }
+      ],
+      "sideboard": [
+        { "quantity": 3, "name": "Grafdigger's Cage" },
+        { "quantity": 3, "name": "Mystical Dispute" },
+        { "quantity": 3, "name": "Aether Gust" },
+        { "quantity": 3, "name": "Thought Distortion" },
+        { "quantity": 3, "name": "Supreme Verdict" }
+      ]
+    },
+    {
+      "id": "mono-green-devotion",
+      "name": "Mono Green Devotion",
+      "tier": 2,
+      "winRate": "53.4%",
+      "archetype": "Ramp",
+      "colors": ["G"],
+      "mainboard": [
+        { "quantity": 4, "name": "Elvish Mystic" },
+        { "quantity": 4, "name": "Llanowar Elves" },
+        { "quantity": 4, "name": "Voracious Hydra" },
+        { "quantity": 4, "name": "Nykthos, Shrine to Nyx" },
+        { "quantity": 4, "name": "Old-Growth Troll" },
+        { "quantity": 4, "name": "Cavalier of Thorns" },
+        { "quantity": 4, "name": "Storm the Festival" },
+        { "quantity": 3, "name": "Ulvenwald Oddity" },
+        { "quantity": 3, "name": "Karn, the Great Creator" },
+        { "quantity": 3, "name": "Kiora, Behemoth Beckoner" },
+        { "quantity": 23, "name": "Forest" }
+      ],
+      "sideboard": [
+        { "quantity": 4, "name": "Damping Sphere" },
+        { "quantity": 3, "name": "Karn, the Great Creator" },
+        { "quantity": 3, "name": "Reclamation Sage" },
+        { "quantity": 3, "name": "Obstinate Baloth" },
+        { "quantity": 2, "name": "Hornet Queen" }
+      ]
+    },
+    {
+      "id": "azorius-control",
+      "name": "Azorius Control",
+      "tier": 2,
+      "winRate": "52.0%",
+      "archetype": "Control",
+      "colors": ["W", "U"],
+      "mainboard": [
+        { "quantity": 4, "name": "Absorb" },
+        { "quantity": 4, "name": "Memory Deluge" },
+        { "quantity": 4, "name": "Supreme Verdict" },
+        { "quantity": 3, "name": "Teferi, Hero of Dominaria" },
+        { "quantity": 3, "name": "Teferi, Time Raveler" },
+        { "quantity": 4, "name": "Narset, Parter of Veils" },
+        { "quantity": 3, "name": "Shark Typhoon" },
+        { "quantity": 4, "name": "Dovin's Veto" },
+        { "quantity": 4, "name": "Hallowed Fountain" },
+        { "quantity": 4, "name": "Glacial Fortress" },
+        { "quantity": 4, "name": "Irrigated Farmland" },
+        { "quantity": 4, "name": "Deserted Beach" },
+        { "quantity": 4, "name": "Plains" },
+        { "quantity": 3, "name": "Island" },
+        { "quantity": 3, "name": "Castle Ardenvale" }
+      ],
+      "sideboard": [
+        { "quantity": 3, "name": "Mystical Dispute" },
+        { "quantity": 3, "name": "Rending Volley" },
+        { "quantity": 3, "name": "Farewell" },
+        { "quantity": 3, "name": "Aether Gust" },
+        { "quantity": 3, "name": "Elspeth Conquers Death" }
+      ]
+    }
+  ]
+}

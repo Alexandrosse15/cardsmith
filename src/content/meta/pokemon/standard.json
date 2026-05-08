@@ -1,0 +1,111 @@
+{
+  "format": "Standard",
+  "updatedAt": "2025-05-08",
+  "decks": [
+    {
+      "id": "charizard-ex",
+      "name": "Charizard ex",
+      "tier": 1,
+      "winRate": "59.4%",
+      "archetype": "Aggro",
+      "colors": ["Fire"],
+      "mainboard": [
+        { "quantity": 3, "name": "Charizard ex" },
+        { "quantity": 2, "name": "Charmeleon" },
+        { "quantity": 4, "name": "Charmander" },
+        { "quantity": 2, "name": "Pidgeot ex" },
+        { "quantity": 2, "name": "Pidgeotto" },
+        { "quantity": 4, "name": "Pidgey" },
+        { "quantity": 1, "name": "Mew ex" },
+        { "quantity": 4, "name": "Rare Candy" },
+        { "quantity": 4, "name": "Ultra Ball" },
+        { "quantity": 4, "name": "Arven" },
+        { "quantity": 3, "name": "Professor's Research" },
+        { "quantity": 3, "name": "Iono" },
+        { "quantity": 2, "name": "Boss's Orders" },
+        { "quantity": 2, "name": "Artazon" },
+        { "quantity": 4, "name": "Basic Fire Energy" },
+        { "quantity": 4, "name": "Basic Fire Energy" },
+        { "quantity": 4, "name": "Reversal Energy" }
+      ],
+      "sideboard": []
+    },
+    {
+      "id": "gardevoir-ex",
+      "name": "Gardevoir ex",
+      "tier": 1,
+      "winRate": "57.2%",
+      "archetype": "Combo",
+      "colors": ["Psychic"],
+      "mainboard": [
+        { "quantity": 3, "name": "Gardevoir ex" },
+        { "quantity": 1, "name": "Gardevoir" },
+        { "quantity": 2, "name": "Kirlia" },
+        { "quantity": 4, "name": "Ralts" },
+        { "quantity": 2, "name": "Zacian V" },
+        { "quantity": 1, "name": "Drifloon" },
+        { "quantity": 2, "name": "Scream Tail" },
+        { "quantity": 4, "name": "Rare Candy" },
+        { "quantity": 4, "name": "Ultra Ball" },
+        { "quantity": 3, "name": "Level Ball" },
+        { "quantity": 3, "name": "Arven" },
+        { "quantity": 3, "name": "Iono" },
+        { "quantity": 2, "name": "Boss's Orders" },
+        { "quantity": 3, "name": "Professor's Research" },
+        { "quantity": 11, "name": "Basic Psychic Energy" }
+      ],
+      "sideboard": []
+    },
+    {
+      "id": "lost-box",
+      "name": "Lost Box",
+      "tier": 2,
+      "winRate": "54.1%",
+      "archetype": "Midrange",
+      "colors": ["Colorless"],
+      "mainboard": [
+        { "quantity": 2, "name": "Comfey" },
+        { "quantity": 2, "name": "Cramorant" },
+        { "quantity": 2, "name": "Sableye" },
+        { "quantity": 1, "name": "Radiant Greninja" },
+        { "quantity": 1, "name": "Radiant Charizard" },
+        { "quantity": 1, "name": "Kyogre" },
+        { "quantity": 1, "name": "Giratina VSTAR" },
+        { "quantity": 1, "name": "Giratina V" },
+        { "quantity": 4, "name": "Colress's Experiment" },
+        { "quantity": 4, "name": "Mirage Gate" },
+        { "quantity": 4, "name": "Switch Cart" },
+        { "quantity": 3, "name": "Iono" },
+        { "quantity": 3, "name": "Boss's Orders" },
+        { "quantity": 4, "name": "Basic Water Energy" },
+        { "quantity": 4, "name": "Basic Fire Energy" },
+        { "quantity": 4, "name": "Basic Lightning Energy" }
+      ],
+      "sideboard": []
+    },
+    {
+      "id": "miraidon-ex",
+      "name": "Miraidon ex",
+      "tier": 2,
+      "winRate": "52.8%",
+      "archetype": "Aggro",
+      "colors": ["Lightning"],
+      "mainboard": [
+        { "quantity": 4, "name": "Miraidon ex" },
+        { "quantity": 4, "name": "Kilowattrel" },
+        { "quantity": 2, "name": "Wattrel" },
+        { "quantity": 2, "name": "Iron Hands ex" },
+        { "quantity": 2, "name": "Iron Jugulis ex" },
+        { "quantity": 2, "name": "Regieleki ex" },
+        { "quantity": 4, "name": "Ultra Ball" },
+        { "quantity": 4, "name": "Arven" },
+        { "quantity": 3, "name": "Iono" },
+        { "quantity": 3, "name": "Professor's Research" },
+        { "quantity": 2, "name": "Boss's Orders" },
+        { "quantity": 4, "name": "Basic Lightning Energy" },
+        { "quantity": 4, "name": "Basic Lightning Energy" }
+      ],
+      "sideboard": []
+    }
+  ]
+}

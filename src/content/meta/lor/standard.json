@@ -1,0 +1,70 @@
+{
+  "format": "Standard",
+  "updatedAt": "2025-05-08",
+  "decks": [
+    {
+      "id": "azirelia",
+      "name": "Azir / Irelia",
+      "tier": 1,
+      "winRate": "57.3%",
+      "archetype": "Aggro-Tempo",
+      "colors": ["Shurima", "Ionia"],
+      "mainboard": [
+        { "quantity": 3, "name": "Azir" },
+        { "quantity": 3, "name": "Irelia" },
+        { "quantity": 3, "name": "Sand Soldier" },
+        { "quantity": 3, "name": "Inspiring Marshal" },
+        { "quantity": 3, "name": "Sparring Student" },
+        { "quantity": 2, "name": "Durand Sculptor" },
+        { "quantity": 3, "name": "Bladesurge" },
+        { "quantity": 3, "name": "Shaped Stone" },
+        { "quantity": 3, "name": "Ruthless Predator" },
+        { "quantity": 2, "name": "Syncopation" },
+        { "quantity": 3, "name": "Concerted Strike" }
+      ],
+      "sideboard": []
+    },
+    {
+      "id": "zilean-xerath",
+      "name": "Zilean / Xerath",
+      "tier": 1,
+      "winRate": "55.9%",
+      "archetype": "Combo",
+      "colors": ["Shurima"],
+      "mainboard": [
+        { "quantity": 3, "name": "Zilean" },
+        { "quantity": 3, "name": "Xerath" },
+        { "quantity": 3, "name": "Ziggs" },
+        { "quantity": 3, "name": "Rock Hopper" },
+        { "quantity": 3, "name": "Ancient Preparations" },
+        { "quantity": 3, "name": "Predict" },
+        { "quantity": 3, "name": "Clockwork Curator" },
+        { "quantity": 3, "name": "Cataclysm" },
+        { "quantity": 3, "name": "Time Bomb" },
+        { "quantity": 2, "name": "Rite of Passage" }
+      ],
+      "sideboard": []
+    },
+    {
+      "id": "lee-sin",
+      "name": "Lee Sin / Zoe",
+      "tier": 2,
+      "winRate": "53.2%",
+      "archetype": "Combo",
+      "colors": ["Ionia", "Targon"],
+      "mainboard": [
+        { "quantity": 3, "name": "Lee Sin" },
+        { "quantity": 3, "name": "Zoe" },
+        { "quantity": 3, "name": "Eye of the Dragon" },
+        { "quantity": 3, "name": "Fleetfeather Tracker" },
+        { "quantity": 3, "name": "Solari Shieldbearer" },
+        { "quantity": 3, "name": "Pale Cascade" },
+        { "quantity": 3, "name": "Dragon's Rage" },
+        { "quantity": 3, "name": "Zenith Blade" },
+        { "quantity": 3, "name": "Stand United" },
+        { "quantity": 2, "name": "Single Combat" }
+      ],
+      "sideboard": []
+    }
+  ]
+}

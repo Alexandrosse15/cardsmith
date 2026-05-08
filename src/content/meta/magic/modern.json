@@ -1,0 +1,129 @@
+{
+  "format": "Modern",
+  "updatedAt": "2025-05-08",
+  "decks": [
+    {
+      "id": "amulet-titan",
+      "name": "Amulet Titan",
+      "tier": 1,
+      "winRate": "58.1%",
+      "archetype": "Combo-Ramp",
+      "colors": ["G", "U"],
+      "mainboard": [
+        { "quantity": 4, "name": "Primeval Titan" },
+        { "quantity": 4, "name": "Amulet of Vigor" },
+        { "quantity": 4, "name": "Cultivator Colossus" },
+        { "quantity": 4, "name": "Arboreal Grazer" },
+        { "quantity": 4, "name": "Summoner's Pact" },
+        { "quantity": 4, "name": "Azusa, Lost but Seeking" },
+        { "quantity": 4, "name": "Explore" },
+        { "quantity": 4, "name": "Slayers' Stronghold" },
+        { "quantity": 4, "name": "Sunhome, Fortress of the Legion" },
+        { "quantity": 4, "name": "Tolaria West" },
+        { "quantity": 4, "name": "Boros Garrison" },
+        { "quantity": 4, "name": "Simic Growth Chamber" },
+        { "quantity": 4, "name": "Forest" },
+        { "quantity": 4, "name": "Breeding Pool" }
+      ],
+      "sideboard": [
+        { "quantity": 3, "name": "Reclamation Sage" },
+        { "quantity": 3, "name": "Force of Vigor" },
+        { "quantity": 3, "name": "Tireless Tracker" },
+        { "quantity": 3, "name": "Endurance" },
+        { "quantity": 3, "name": "Engineered Explosives" }
+      ]
+    },
+    {
+      "id": "murktide-regent",
+      "name": "Murktide Regent",
+      "tier": 1,
+      "winRate": "56.4%",
+      "archetype": "Tempo",
+      "colors": ["U", "R"],
+      "mainboard": [
+        { "quantity": 4, "name": "Murktide Regent" },
+        { "quantity": 4, "name": "Dragon's Rage Channeler" },
+        { "quantity": 4, "name": "Ragavan, Nimble Pilferer" },
+        { "quantity": 4, "name": "Lightning Bolt" },
+        { "quantity": 4, "name": "Counterspell" },
+        { "quantity": 4, "name": "Expressive Iteration" },
+        { "quantity": 4, "name": "Mishra's Bauble" },
+        { "quantity": 4, "name": "Unholy Heat" },
+        { "quantity": 4, "name": "Steam Vents" },
+        { "quantity": 4, "name": "Scalding Tarn" },
+        { "quantity": 4, "name": "Fiery Islet" },
+        { "quantity": 4, "name": "Spirebluff Canal" },
+        { "quantity": 4, "name": "Island" },
+        { "quantity": 4, "name": "Mountain" }
+      ],
+      "sideboard": [
+        { "quantity": 3, "name": "Blood Moon" },
+        { "quantity": 3, "name": "Mystical Dispute" },
+        { "quantity": 3, "name": "Engineered Explosives" },
+        { "quantity": 3, "name": "Flusterstorm" },
+        { "quantity": 3, "name": "Subtlety" }
+      ]
+    },
+    {
+      "id": "hammer-time",
+      "name": "Hammer Time",
+      "tier": 1,
+      "winRate": "55.7%",
+      "archetype": "Aggro-Combo",
+      "colors": ["W", "U"],
+      "mainboard": [
+        { "quantity": 4, "name": "Colossus Hammer" },
+        { "quantity": 4, "name": "Puresteel Paladin" },
+        { "quantity": 4, "name": "Sigarda's Aid" },
+        { "quantity": 4, "name": "Ornithopter" },
+        { "quantity": 4, "name": "Memnite" },
+        { "quantity": 4, "name": "Esper Sentinel" },
+        { "quantity": 4, "name": "Stoneforge Mystic" },
+        { "quantity": 4, "name": "Springleaf Drum" },
+        { "quantity": 4, "name": "Hallowed Fountain" },
+        { "quantity": 4, "name": "Flooded Strand" },
+        { "quantity": 4, "name": "Urza's Saga" },
+        { "quantity": 4, "name": "Plains" },
+        { "quantity": 4, "name": "Island" }
+      ],
+      "sideboard": [
+        { "quantity": 3, "name": "Spell Pierce" },
+        { "quantity": 3, "name": "Sanctifier en-Vec" },
+        { "quantity": 3, "name": "Stony Silence" },
+        { "quantity": 3, "name": "Chalice of the Void" },
+        { "quantity": 3, "name": "Dispatch" }
+      ]
+    },
+    {
+      "id": "living-end",
+      "name": "Living End",
+      "tier": 2,
+      "winRate": "53.2%",
+      "archetype": "Combo",
+      "colors": ["B", "R", "G"],
+      "mainboard": [
+        { "quantity": 4, "name": "Living End" },
+        { "quantity": 4, "name": "Violent Outburst" },
+        { "quantity": 4, "name": "Demonic Dread" },
+        { "quantity": 4, "name": "Street Wraith" },
+        { "quantity": 4, "name": "Architects of Will" },
+        { "quantity": 4, "name": "Shardless Agent" },
+        { "quantity": 3, "name": "Grief" },
+        { "quantity": 3, "name": "Subtlety" },
+        { "quantity": 4, "name": "Verdant Catacombs" },
+        { "quantity": 4, "name": "Misty Rainforest" },
+        { "quantity": 4, "name": "Stomping Ground" },
+        { "quantity": 4, "name": "Blood Crypt" },
+        { "quantity": 3, "name": "Overgrown Tomb" },
+        { "quantity": 3, "name": "Forest" }
+      ],
+      "sideboard": [
+        { "quantity": 3, "name": "Endurance" },
+        { "quantity": 3, "name": "Force of Vigor" },
+        { "quantity": 3, "name": "Leyline of the Void" },
+        { "quantity": 3, "name": "Boseiju, Who Endures" },
+        { "quantity": 3, "name": "Engineered Explosives" }
+      ]
+    }
+  ]
+}

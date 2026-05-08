@@ -51,7 +51,7 @@ async function fetchCardDetail(game: Game, id: string) {
       if (!card) return null
       return {
         name: card.name,
-        image: card.assets[0]?.fullAbsolutePath ?? getLorCardImage(card),
+        image: getLorCardImage(card, 'full'),
         set: card.set,
         rarity: card.rarity,
         type: card.type,

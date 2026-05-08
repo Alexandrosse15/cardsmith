@@ -61,6 +61,8 @@ export async function getLorCard(cardCode: string): Promise<LorCard | undefined>
   return cards.find((c) => c.cardCode === cardCode)
 }
 
-export function getLorCardImage(card: LorCard): string {
-  return card.assets[0]?.gameAbsolutePath ?? ''
+export function getLorCardImage(card: LorCard, size: 'game' | 'full' = 'game'): string {
+  const asset = card.assets[0]
+  if (!asset) return ''
+  return size === 'full' ? asset.fullAbsolutePath : asset.gameAbsolutePath
 }

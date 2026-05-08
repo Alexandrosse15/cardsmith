@@ -1,0 +1,104 @@
+{
+  "format": "Core",
+  "updatedAt": "2025-05-08",
+  "decks": [
+    {
+      "id": "sapphire-steel-control",
+      "name": "Sapphire / Steel Control",
+      "tier": 1,
+      "winRate": "58.1%",
+      "archetype": "Control",
+      "colors": ["Sapphire", "Steel"],
+      "mainboard": [
+        { "quantity": 4, "name": "Merlin - Shapeshifter" },
+        { "quantity": 4, "name": "Moana - Of the Ocean" },
+        { "quantity": 4, "name": "Elsa - Snow Queen" },
+        { "quantity": 3, "name": "Cinderella - Stouthearted" },
+        { "quantity": 4, "name": "A Whole New World" },
+        { "quantity": 4, "name": "Befuddle" },
+        { "quantity": 4, "name": "Control Your Temper" },
+        { "quantity": 4, "name": "Dragon Fire" },
+        { "quantity": 3, "name": "Maleficent - Sinister Visitor" },
+        { "quantity": 3, "name": "Hades - King of Olympus" },
+        { "quantity": 4, "name": "Gaston - Scheming Suitor" },
+        { "quantity": 3, "name": "Hiram Flaversham - Toymaker" },
+        { "quantity": 4, "name": "Pawpsicle" },
+        { "quantity": 4, "name": "Hypnotize" },
+        { "quantity": 4, "name": "Grab Your Sword" }
+      ],
+      "sideboard": []
+    },
+    {
+      "id": "ruby-amethyst-aggro",
+      "name": "Ruby / Amethyst Aggro",
+      "tier": 1,
+      "winRate": "55.4%",
+      "archetype": "Aggro",
+      "colors": ["Ruby", "Amethyst"],
+      "mainboard": [
+        { "quantity": 4, "name": "Simba - Returned King" },
+        { "quantity": 4, "name": "Hercules - True Hero" },
+        { "quantity": 4, "name": "Flynn Rider - Charming Rogue" },
+        { "quantity": 4, "name": "Maui - Hero to All" },
+        { "quantity": 3, "name": "Jafar - Striking Illusionist" },
+        { "quantity": 4, "name": "Be Prepared" },
+        { "quantity": 4, "name": "Sisu - Empowered Sibling" },
+        { "quantity": 4, "name": "Smash" },
+        { "quantity": 3, "name": "Fire the Cannons" },
+        { "quantity": 4, "name": "Yzma - Scary Beyond All Reason" },
+        { "quantity": 4, "name": "Kuzco - Self-Absorbed Emperor" },
+        { "quantity": 4, "name": "Cruella De Vil - Miserable as Usual" },
+        { "quantity": 4, "name": "Let It Go" },
+        { "quantity": 4, "name": "Robin Hood - Unrivaled Archer" }
+      ],
+      "sideboard": []
+    },
+    {
+      "id": "emerald-ruby-tempo",
+      "name": "Emerald / Ruby Tempo",
+      "tier": 2,
+      "winRate": "52.0%",
+      "archetype": "Tempo",
+      "colors": ["Emerald", "Ruby"],
+      "mainboard": [
+        { "quantity": 4, "name": "Peter Pan - Never Landing" },
+        { "quantity": 4, "name": "Tinker Bell - Giant Fairy" },
+        { "quantity": 4, "name": "Rapunzel - Gifted with Healing" },
+        { "quantity": 4, "name": "Pascal - Rapunzel's Companion" },
+        { "quantity": 4, "name": "Captain Hook - Forceful Duelist" },
+        { "quantity": 4, "name": "Flounder - Voice of Reason" },
+        { "quantity": 3, "name": "Scar - Vicious Cheater" },
+        { "quantity": 3, "name": "Grab Your Sword" },
+        { "quantity": 4, "name": "Smash" },
+        { "quantity": 4, "name": "Hakuna Matata" },
+        { "quantity": 4, "name": "You Have Forgotten Me" },
+        { "quantity": 4, "name": "Dragon Fire" },
+        { "quantity": 4, "name": "Mufasa - King of the Pride Lands" }
+      ],
+      "sideboard": []
+    },
+    {
+      "id": "amber-sapphire-songs",
+      "name": "Amber / Sapphire Songs",
+      "tier": 2,
+      "winRate": "50.8%",
+      "archetype": "Combo",
+      "colors": ["Amber", "Sapphire"],
+      "mainboard": [
+        { "quantity": 4, "name": "Belle - Strange but Special" },
+        { "quantity": 4, "name": "Ariel - On Human Legs" },
+        { "quantity": 4, "name": "Cinderella - Ballroom Sensation" },
+        { "quantity": 4, "name": "A Whole New World" },
+        { "quantity": 4, "name": "Part of Your World" },
+        { "quantity": 4, "name": "Be Our Guest" },
+        { "quantity": 4, "name": "Hakuna Matata" },
+        { "quantity": 3, "name": "Moana - Of the Ocean" },
+        { "quantity": 3, "name": "Merlin - Shapeshifter" },
+        { "quantity": 4, "name": "Elsa - Snow Queen" },
+        { "quantity": 4, "name": "Flounder - Collector of Thingamabobs" },
+        { "quantity": 4, "name": "Enchantress - Reading the Signs" }
+      ],
+      "sideboard": []
+    }
+  ]
+}

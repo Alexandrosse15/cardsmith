@@ -1,0 +1,163 @@
+{
+  "format": "Standard",
+  "updatedAt": "2025-05-08",
+  "decks": [
+    {
+      "id": "domain-ramp",
+      "name": "Domain Ramp",
+      "tier": 1,
+      "winRate": "56.2%",
+      "archetype": "Ramp",
+      "colors": ["W", "U", "B", "R", "G"],
+      "mainboard": [
+        { "quantity": 4, "name": "Atraxa, Grand Unifier" },
+        { "quantity": 4, "name": "Up the Beanstalk" },
+        { "quantity": 4, "name": "Sunfall" },
+        { "quantity": 3, "name": "Archangel Elspeth" },
+        { "quantity": 4, "name": "Nissa, Resurgent Animist" },
+        { "quantity": 4, "name": "Invasion of Zendikar" },
+        { "quantity": 3, "name": "Elspeth, Sun's Champion" },
+        { "quantity": 4, "name": "Restless Anchorage" },
+        { "quantity": 4, "name": "Restless Prairie" },
+        { "quantity": 4, "name": "Restless Ridgeline" },
+        { "quantity": 4, "name": "Restless Reef" },
+        { "quantity": 4, "name": "Restless Fortress" },
+        { "quantity": 4, "name": "Forest" },
+        { "quantity": 3, "name": "Plains" },
+        { "quantity": 3, "name": "Island" },
+        { "quantity": 3, "name": "Swamp" },
+        { "quantity": 3, "name": "Mountain" }
+      ],
+      "sideboard": [
+        { "quantity": 3, "name": "Go for the Throat" },
+        { "quantity": 3, "name": "Duress" },
+        { "quantity": 3, "name": "Temporary Lockdown" },
+        { "quantity": 2, "name": "Depopulate" },
+        { "quantity": 2, "name": "Atraxa, Grand Unifier" },
+        { "quantity": 2, "name": "Sunfall" }
+      ]
+    },
+    {
+      "id": "azorius-soldiers",
+      "name": "Azorius Soldiers",
+      "tier": 1,
+      "winRate": "54.8%",
+      "archetype": "Aggro",
+      "colors": ["W", "U"],
+      "mainboard": [
+        { "quantity": 4, "name": "Harbin, Vanguard Aviator" },
+        { "quantity": 4, "name": "Recruitment Officer" },
+        { "quantity": 4, "name": "Valiant Veteran" },
+        { "quantity": 4, "name": "Yotian Frontliner" },
+        { "quantity": 4, "name": "Skystrike Officer" },
+        { "quantity": 4, "name": "Siege Veteran" },
+        { "quantity": 4, "name": "Fortified Beachhead" },
+        { "quantity": 4, "name": "Demolition Field" },
+        { "quantity": 4, "name": "Plains" },
+        { "quantity": 4, "name": "Island" },
+        { "quantity": 4, "name": "Mirrex" },
+        { "quantity": 4, "name": "Adarkar Wastes" },
+        { "quantity": 4, "name": "Cavern of Souls" },
+        { "quantity": 4, "name": "Shefet Dunes" },
+        { "quantity": 4, "name": "Make Your Mark" }
+      ],
+      "sideboard": [
+        { "quantity": 3, "name": "Elspeth Resplendent" },
+        { "quantity": 3, "name": "Depopulate" },
+        { "quantity": 3, "name": "Wedding Announcement" },
+        { "quantity": 3, "name": "Destroy Evil" },
+        { "quantity": 3, "name": "Temporary Lockdown" }
+      ]
+    },
+    {
+      "id": "esper-midrange",
+      "name": "Esper Midrange",
+      "tier": 2,
+      "winRate": "52.1%",
+      "archetype": "Midrange",
+      "colors": ["W", "U", "B"],
+      "mainboard": [
+        { "quantity": 4, "name": "Raffine, Scheming Seer" },
+        { "quantity": 4, "name": "Fable of the Mirror-Breaker" },
+        { "quantity": 4, "name": "Sheoldred, the Apocalypse" },
+        { "quantity": 3, "name": "Kaito Shizuki" },
+        { "quantity": 4, "name": "Corpse Appraiser" },
+        { "quantity": 4, "name": "Graveyard Trespasser" },
+        { "quantity": 4, "name": "Obscura Interceptor" },
+        { "quantity": 4, "name": "Make Disappear" },
+        { "quantity": 4, "name": "Cut Down" },
+        { "quantity": 4, "name": "Shipwreck Marsh" },
+        { "quantity": 4, "name": "Raffine's Tower" },
+        { "quantity": 4, "name": "Obscura Storefront" },
+        { "quantity": 4, "name": "Haunted Ridge" },
+        { "quantity": 4, "name": "Deserted Beach" },
+        { "quantity": 3, "name": "Plains" }
+      ],
+      "sideboard": [
+        { "quantity": 3, "name": "Duress" },
+        { "quantity": 3, "name": "Unlicensed Hearse" },
+        { "quantity": 3, "name": "Farewell" },
+        { "quantity": 3, "name": "Destroy Evil" },
+        { "quantity": 3, "name": "Touch the Spirit Realm" }
+      ]
+    },
+    {
+      "id": "mono-red-aggro",
+      "name": "Mono Red Aggro",
+      "tier": 2,
+      "winRate": "51.7%",
+      "archetype": "Aggro",
+      "colors": ["R"],
+      "mainboard": [
+        { "quantity": 4, "name": "Monastery Swiftspear" },
+        { "quantity": 4, "name": "Kumano Faces Kakkazan" },
+        { "quantity": 4, "name": "Feldon, Ronom Excavator" },
+        { "quantity": 4, "name": "Squee, Dubious Monarch" },
+        { "quantity": 4, "name": "Lightning Strike" },
+        { "quantity": 4, "name": "Play with Fire" },
+        { "quantity": 4, "name": "Strangle" },
+        { "quantity": 4, "name": "Reckless Impulse" },
+        { "quantity": 4, "name": "Reinforced Ronin" },
+        { "quantity": 4, "name": "Bloodthirsty Adversary" },
+        { "quantity": 20, "name": "Mountain" }
+      ],
+      "sideboard": [
+        { "quantity": 3, "name": "Roiling Vortex" },
+        { "quantity": 3, "name": "Abrade" },
+        { "quantity": 3, "name": "Chandra, Dressed to Kill" },
+        { "quantity": 3, "name": "Electrostatic Infantry" },
+        { "quantity": 3, "name": "Lithomantic Barrage" }
+      ]
+    },
+    {
+      "id": "golgari-midrange",
+      "name": "Golgari Midrange",
+      "tier": 2,
+      "winRate": "50.9%",
+      "archetype": "Midrange",
+      "colors": ["B", "G"],
+      "mainboard": [
+        { "quantity": 4, "name": "Glissa Sunslayer" },
+        { "quantity": 4, "name": "Sheoldred, the Apocalypse" },
+        { "quantity": 4, "name": "Graveyard Trespasser" },
+        { "quantity": 4, "name": "Invoke Despair" },
+        { "quantity": 4, "name": "Gix's Command" },
+        { "quantity": 4, "name": "Cut Down" },
+        { "quantity": 3, "name": "Tear Asunder" },
+        { "quantity": 3, "name": "Liliana of the Veil" },
+        { "quantity": 4, "name": "Overgrown Tomb" },
+        { "quantity": 4, "name": "Deathcap Glade" },
+        { "quantity": 4, "name": "Haunted Ridge" },
+        { "quantity": 6, "name": "Swamp" },
+        { "quantity": 6, "name": "Forest" }
+      ],
+      "sideboard": [
+        { "quantity": 3, "name": "Duress" },
+        { "quantity": 3, "name": "Grafdigger's Cage" },
+        { "quantity": 3, "name": "Go Blank" },
+        { "quantity": 3, "name": "The Meathook Massacre" },
+        { "quantity": 3, "name": "Unlicensed Hearse" }
+      ]
+    }
+  ]
+}
