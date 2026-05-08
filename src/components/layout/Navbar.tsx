@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 
@@ -34,7 +35,8 @@ export default function Navbar({ lang, t }: NavbarProps) {
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--card-border)] bg-[var(--surface)]/90 backdrop-blur-sm">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
-        <Link href={`/${lang}`} className="text-xl font-bold tracking-tight text-white">
+        <Link href={`/${lang}`} className="flex items-center gap-2 text-xl font-bold tracking-tight text-white">
+          <Image src="/cardsmith-icon.svg" alt="Cardsmith" width={32} height={32} className="rounded-lg" />
           Card<span className="text-[var(--accent)]">smith</span>
         </Link>
 
