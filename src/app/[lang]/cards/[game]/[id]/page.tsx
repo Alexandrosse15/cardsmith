@@ -29,17 +29,19 @@ async function fetchCardDetail(game: Game, id: string) {
     }
     if (game === 'lorcana') {
       const card = await getLorcanaCard(id)
+      const usd = card.prices.usd != null ? parseFloat(String(card.prices.usd)) : null
+      const usdFoil = card.prices.usd_foil != null ? parseFloat(String(card.prices.usd_foil)) : null
       return {
         name: getLorcanaFullName(card),
         image: getLorcanaImage(card, 'large'),
         set: card.set.name,
         rarity: formatLorcanaRarity(card.rarity),
-        type: card.type.join(', '),
+        type: (card.type ?? []).join(', '),
         text: card.text ?? null,
-        priceEur: card.prices.usd ? `${card.prices.usd.toFixed(2)} $` : null,
-        priceEurFoil: card.prices.usd_foil ? `${card.prices.usd_foil.toFixed(2)} $` : null,
-        cardmarketUrl: null,
-        number: card.collector_number,
+        priceEur: usd ? `${usd.toFixed(2)} $` : null,
+        priceEurFoil: usdFoil ? `${usdFoil.toFixed(2)} $` : null,
+        cardmarketUrl: card.purchase_uris?.tcgplayer ?? null,
+        number: String(card.collector_number),
         legalities: {},
       }
     }

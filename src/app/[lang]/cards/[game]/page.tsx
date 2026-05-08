@@ -177,25 +177,20 @@ export default async function CardsPage({
               : `${sets.length} sets since The First Chapter (2023)`}
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {sets.map((set) => (
             <Link
               key={set.code}
               href={`/${lang}/cards/lorcana/sets/${set.code}`}
-              className="flex items-center gap-4 rounded-xl border border-[var(--card-border)] bg-[var(--card-bg)] px-4 py-4 transition-all hover:border-[var(--accent)] hover:-translate-y-0.5"
+              className="flex flex-col gap-1 rounded-xl border border-[var(--card-border)] bg-[var(--card-bg)] px-4 py-4 transition-all hover:border-[var(--accent)] hover:-translate-y-0.5"
             >
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-500/15 text-sm font-bold text-blue-400">
-                {set.code}
-              </div>
-              <div className="min-w-0 flex-1">
-                <p className="truncate text-sm font-semibold text-white">{set.name}</p>
-                <p className="text-xs text-[var(--muted)]">
-                  {new Date(set.released_at).toLocaleDateString(lang === 'fr' ? 'fr-FR' : 'en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                  })}
-                </p>
-              </div>
+              <p className="truncate text-sm font-semibold text-white">{set.name}</p>
+              <p className="text-xs text-[var(--muted)]">
+                {new Date(set.released_at).toLocaleDateString(lang === 'fr' ? 'fr-FR' : 'en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                })}
+              </p>
             </Link>
           ))}
         </div>

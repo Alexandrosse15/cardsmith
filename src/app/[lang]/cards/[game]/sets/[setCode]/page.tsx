@@ -42,8 +42,8 @@ export default async function SetCardsPage({
         name: getLorcanaFullName(c),
         set: c.set.name,
         rarity: formatLorcanaRarity(c.rarity),
-        imageUrl: getLorcanaImage(c, 'small'),
-        priceEur: c.prices.usd ?? null,
+        imageUrl: getLorcanaImage(c, 'normal'),
+        priceEur: c.prices.usd != null ? parseFloat(String(c.prices.usd)) : null,
         game: 'lorcana',
       }))
     } catch {

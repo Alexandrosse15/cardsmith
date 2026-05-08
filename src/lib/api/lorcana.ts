@@ -26,7 +26,7 @@ export interface LorcanaCard {
   rarity: string
   collector_number: string
   set: { id: string; code: string; name: string }
-  prices: { usd?: number | null; usd_foil?: number | null }
+  prices: { usd?: string | number | null; usd_foil?: string | number | null }
   purchase_uris?: { tcgplayer?: string }
 }
 
